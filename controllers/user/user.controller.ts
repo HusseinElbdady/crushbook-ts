@@ -1,5 +1,5 @@
 import { hash, compare } from 'bcryptjs';
-import { User } from '../../model/users/users.model';
+import { User, IUser } from '../../model/users/users.model';
 import { Freind } from '../../model/friends/friends.model';
 import * as mongoose from 'mongoose';
 import { Response, Request } from 'express'
@@ -32,13 +32,15 @@ export class UserController {
 
     // register new user
     register = async (req: any, res: Response) => {
-        req.body.password = await hash(req.body.password.toString(), 8);
+        // req.body.password = await hash(req.body.password.toString(), 8);
 
-        const user = new User(req.body);
+        const user: any = new User(req.body);
+        user.password = user.encryptPassword(req.body.password);
         try {
             let result: any = await user.save();
             res.status(200).send({ _id: result._id, name: result.name, token: result.generateToken() });
         } catch (e) {
+            console.log(e)
             res.status(400).send({ error: 'Error Saving Data' });
         }
     };

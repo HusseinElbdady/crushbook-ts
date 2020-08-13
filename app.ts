@@ -1,9 +1,9 @@
-import * as express from 'express';
-const app: express.Application = express();
+import express, { Application } from 'express';
+const app: Application = express();
 const PORT = process.env.PORT || 3000;
 
 import * as mongoose from 'mongoose';
-import * as cors from 'cors';
+import cors from 'cors';
 
 // import and envoke env config file
 import { config } from 'dotenv';

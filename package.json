@@ -1,0 +1,31 @@
+{
+  "name": "crushbook",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node -r esm app.js",
+    "dev": "nodemon -x ts-node app.ts",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.7",
+    "@types/mongoose": "^5.7.36",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jest-esm-transformer": "^1.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.25",
+    "multer": "^1.4.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.9",
+    "jest": "^26.1.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
+  }
+}
